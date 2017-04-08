@@ -45,3 +45,17 @@ src/docs/build
 src/docs/cn/build
 src/docs/cn/src/documentation/sitemap.xmap
 src/docs/cn/uming.conf
+
+
+.DS_Store
+TestDFSIO_results.log
+file:/
+gutenberg/
+ivy/hadoop-core-pom.xml
+ivy/hadoop-examples-pom.xml
+ivy/hadoop-streaming-pom.xml
+ivy/hadoop-test-pom.xml
+ivy/hadoop-tools-pom.xml
+ivy/ivy-2.0.0-rc2.jar
+ivy/maven-ant-tasks-2.0.10.jar
+mapredJob/

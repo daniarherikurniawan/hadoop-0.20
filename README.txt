@@ -29,3 +29,52 @@ The following provides more details on the included cryptographic
 software:
   Hadoop Core uses the SSL libraries from the Jetty project written 
 by mortbay.org.
+
+
+===================== DANIAR ======================================
+clone : 
+
+git init
+git remote add -t branch-0.20 -f origin https://github.com/ucare-uchicago/hadoop.git
+git checkout branch-0.20
+
+
+https://hadoop.apache.org/docs/r0.23.11/hadoop-project-dist/hadoop-common/SingleCluster.html
+ - install mvn 
+ - instruction
+ 	$ mvn clean install -DskipTests
+	$ cd hadoop-mapreduce-project
+	$ mvn clean install assembly:assembly -Pnative
+[failed]
+
+http://www.michael-noll.com/blog/2011/04/14/building-an-hadoop-0-20-x-version-for-hbase-0-90-2/
+- install java set java home
+- install maven
+- install ant
+	# Run the build process
+	$ ant mvn-install
+
+	# Optional: run the full test suite or just the core test suite
+	$ ant test
+	$ ant test-core
+
+http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
+
+set env variable at ~/.bash_profile
+sudo chown -R daniar hadoop-20
+
+$ sudo mkdir -p /app/hadoop/tmp
+$ sudo chown daniar /app/hadoop/tmp
+# ...and if you want to tighten up security, chmod from 755 to 750...
+$ sudo chmod 750 /app/hadoop/tmp
+
+source .bash_profile
+
+bin/hadoop dfs -copyFromLocal gutenberg /gutenberg
+
+================= MAPREDUCE JOB ===================
+javac -classpath ../build/hadoop-core-0.20.3-SNAPSHOT.jar  WordCount.java
+jar -cvf WordCount.jar *.class
+
+just this : bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar wordcount /gutenberg /gutenberg-output
+
