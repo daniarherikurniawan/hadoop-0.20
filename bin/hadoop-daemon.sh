@@ -28,7 +28,7 @@
 #   HADOOP_NICENESS The scheduling priority for daemons. Defaults to 0.
 ##
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
-export HADOOP_HOME=/mnt/extra/hadoop
+export HADOOP_HOME=/users/daniar/hadoop
 
 usage="Usage: hadoop-daemon.sh [--config <conf-dir>] [--hosts hostlistfile] (start|stop) <hadoop-command> <args...>"
 

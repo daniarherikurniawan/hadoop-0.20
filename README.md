@@ -103,7 +103,7 @@ sudo apt-get install vim
 vim $HOME/.bashrc
 ```
 	# Set Hadoop-related environment variables
-	export HADOOP_HOME=/mnt/extra/hadoop
+	export HADOOP_HOME=/users/daniar/hadoop
 
 	# Set JAVA_HOME (we will also configure JAVA_HOME directly for Hadoop later on)
 	export JAVA_HOME=/usr/lib/jvm/java-8-oracle

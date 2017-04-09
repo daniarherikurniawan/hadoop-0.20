@@ -3,11 +3,29 @@
 
 <!-- Put site-specific property overrides in this file. -->
 <configuration>
+	
+	<property>
+	  <name>mapred.job.tracker</name>
+	  <value>node-0.hadoopcluster.cs331-uc.emulab.net:54311</value>
+	  <description>The host and port that the MapReduce job tracker runs
+	  at.  If "local", then jobs are run in-process as a single map
+	  and reduce task.
+	  </description>
+	</property>
+
+	<property>
+		<name>mapred.local.dir</name>
+		<value>/tmp/hadoop-ucare</value>
+	</property>
+
+<configuration>
+
+<!-- <configuration>
 	<property>
 		<name>mapred.job.tracker</name>
 		<value>localhost:9001</value>
 	</property>
-</configuration>
+</configuration> -->
 
 <!-- <configuration>
 	<property>
