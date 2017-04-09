@@ -17,14 +17,14 @@
 
 
 # Start all hadoop daemons.  Run this on master node.
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/
 
 bin=`dirname "$0"`
 bin=`cd "$bin"; pwd`
-echo $JAVA_HOME
 . "$bin"/hadoop-config.sh
 # start dfs daemons
 echo $JAVA_HOME
 "$bin"/start-dfs.sh --config $HADOOP_CONF_DIR
 # start mapred daemons
-echo $JAVA_HOME
-"$bin"/start-mapred.sh --config $HADOOP_CONF_DIR
+# echo $JAVA_HOME
+# "$bin"/start-mapred.sh --config $HADOOP_CONF_DIR
