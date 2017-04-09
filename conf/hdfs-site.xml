@@ -6,11 +6,11 @@
 <configuration>
 	<property>
 	  <name>dfs.name.dir</name>
-	  <value>/tmp/hadoop-ucare/dfs/name</value>
+	  <value>file:///app/hadoop/tmp/dfs/name</value>
 	</property>
 	<property>
 	  <name>dfs.data.dir</name>
-	  <value>/tmp/hadoop-ucare/dfs/data</value>
+	  <value>file:///app/hadoop/tmp/dfs/data</value>
 	</property>
 	<property>
 	  <name>dfs.replication</name>
