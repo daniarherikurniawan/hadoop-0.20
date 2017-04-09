@@ -99,14 +99,14 @@ Host 155.98.39.*
 
 cd /mnt/extra/hadoop/
 ant mvn-install
-
+sudo apt-get install vim
 vim $HOME/.bashrc
 ```
 	# Set Hadoop-related environment variables
 	export HADOOP_HOME=/mnt/extra/hadoop
 
 	# Set JAVA_HOME (we will also configure JAVA_HOME directly for Hadoop later on)
-	export JAVA_HOME=/usr/java/jdk1.8.0_73
+	export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 	# Some convenient aliases and functions for running Hadoop-related commands
 	unalias fs &> /dev/null
@@ -117,7 +117,12 @@ vim $HOME/.bashrc
 	# Add Hadoop bin/ directory to PATH
 	export PATH=$PATH:$HADOOP_HOME/bin
 
+JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+source /etc/environment
+
 source $HOME/.bashrc
+
+bin/hadoop namenode -format
 
 ./bin/start-all.sh
 

@@ -8,18 +8,18 @@ echo How many nodes on this experiment?
 read maxNodes
 
 
-counter=0
-while [ $counter -lt $maxNodes ]
-do
-	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
-	echo Scanning ssh fingerprint of $host
-	ssh-keygen -R $host
-	ssh-keyscan $host >> ~/.ssh/known_hosts
-	((counter++))
-done
+# counter=0
+# while [ $counter -lt $maxNodes ]
+# do
+# 	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
+# 	echo \nScanning ssh fingerprint of $host
+# 	ssh-keygen -R $host
+# 	ssh-keyscan $host >> ~/.ssh/known_hosts
+# 	((counter++))
+# done
 
 # echo All done
 
-ssh node-0.hadoopcluster.cs331-uc.emulab.net 'bash -s' < nodescript.sh
+ssh node-10.hadoopcluster.cs331-uc.emulab.net 'bash -s' < nodescript.sh
 echo Hello Dan!
 exit
