@@ -30,5 +30,5 @@ export HADOOP_HOME=/mnt/extra/hadoop
 echo $JAVA_HOME
 "$bin"/start-dfs.sh --config $HADOOP_CONF_DIR
 # start mapred daemons
-# echo $JAVA_HOME
-# "$bin"/start-mapred.sh --config $HADOOP_CONF_DIR
+echo $JAVA_HOME
+"$bin"/start-mapred.sh --config $HADOOP_CONF_DIR
