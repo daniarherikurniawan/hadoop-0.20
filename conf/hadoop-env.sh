@@ -7,8 +7,8 @@
 
 # The java implementation to use.  Required.
 # export JAVA_HOME=/usr/lib/j2sdk1.5-sun
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
-export HADOOP_HOME=/mnt/extra/hadoop
+# export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
+# export HADOOP_HOME=/mnt/extra/hadoop
 # Extra Java CLASSPATH elements.  Optional.
 # export HADOOP_CLASSPATH=
 

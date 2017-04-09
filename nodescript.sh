@@ -23,3 +23,5 @@ ant mvn-install
 bin/hadoop namenode -format
 
 cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+
+./bin/start-all.sh
