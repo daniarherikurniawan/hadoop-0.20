@@ -78,3 +78,62 @@ jar -cvf WordCount.jar *.class
 
 just this : bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar wordcount /gutenberg /gutenberg-output
 
+===================== NODE ACCESS =====================
+node-0.hadoopcluster-dan.ucare.emulab.net 
+node-1.hadoopcluster-dan.ucare.emulab.net 
+node-2.hadoopcluster-dan.ucare.emulab.net 
+node-3.hadoopcluster-dan.ucare.emulab.net 
+
+
+
+
+==================== SSH =========================
+sudo vim /etc/ssh/ssh_config
+Host 155.98.39.*
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
+
+
+===================== RUN ======================
+./myscript.sh
+
+cd /mnt/extra/hadoop/
+ant mvn-install
+
+vim $HOME/.bashrc
+```
+	# Set Hadoop-related environment variables
+	export HADOOP_HOME=/mnt/extra/hadoop
+
+	# Set JAVA_HOME (we will also configure JAVA_HOME directly for Hadoop later on)
+	export JAVA_HOME=/usr/java/jdk1.8.0_73
+
+	# Some convenient aliases and functions for running Hadoop-related commands
+	unalias fs &> /dev/null
+	alias fs="hadoop fs"
+	unalias hls &> /dev/null
+	alias hls="fs -ls"
+
+	# Add Hadoop bin/ directory to PATH
+	export PATH=$PATH:$HADOOP_HOME/bin
+
+source $HOME/.bashrc
+
+./bin/start-all.sh
+
+./bin/stop-all.sh
+
+
+git checkout runbench.sh
+git pull ucare-github-dan master
+vim runbench.sh
+
+
+ssh users.emulab.net
+ssh node-0.HadoopCluster.cs331-uc.emulab.net
+
+ssh-keyscan node-12.hadoopcluster.cs331-uc.emulab.net >> ~/.ssh/known_hosts
+
+
+
+
