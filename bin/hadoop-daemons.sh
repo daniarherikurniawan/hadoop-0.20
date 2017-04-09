@@ -17,6 +17,7 @@
 
 
 # Run a Hadoop command on all slave hosts.
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
 
 usage="Usage: hadoop-daemons.sh [--config confdir] [--hosts hostlistfile] [start|stop] command args..."
 

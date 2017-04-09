@@ -43,6 +43,7 @@ if [ $# -ge 1 ]; then
 	    ;;
 	esac
 fi
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
 
 # start dfs daemons
 # start namenode after datanodes, to minimize time namenode is up w/o data

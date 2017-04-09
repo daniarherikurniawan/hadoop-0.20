@@ -27,6 +27,7 @@
 #   HADOOP_IDENT_STRING   A string representing this instance of hadoop. $USER by default
 #   HADOOP_NICENESS The scheduling priority for daemons. Defaults to 0.
 ##
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
 
 usage="Usage: hadoop-daemon.sh [--config <conf-dir>] [--hosts hostlistfile] (start|stop) <hadoop-command> <args...>"
 
