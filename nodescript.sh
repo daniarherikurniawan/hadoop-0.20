@@ -7,7 +7,7 @@ sudo chmod -R 775 /mnt/extra /tmp/hadoop-ucare
 
 
 counter=0
-while [ $counter -lt $maxNodes ]
+while [ $counter -lt 32 ]
 do
 	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
 	ssh-keygen -R $host
@@ -21,5 +21,5 @@ cd /users/daniar/hadoop
 bin/hadoop namenode -format
 
 # cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
-
+./bin/stop-mapred.sh
 ./bin/start-mapred.sh

@@ -26,7 +26,10 @@ git checkout conf/core-site.xml
 git checkout conf/hadoop-env.sh
 git checkout conf/hdfs-site.xml
 git checkout conf/mapred-site.xml
+git checkout conf/slaves
+git checkout conf/masters
 
 git pull ucare-github-dan master
 # ./bin/start-all.sh
+./bin/stop-dfs.sh
 ./bin/start-dfs.sh
