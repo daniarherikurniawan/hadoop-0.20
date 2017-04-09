@@ -21,6 +21,6 @@ echo Starting the script!
 
 # echo All done
 
-ssh node-4.hadoopcluster.cs331-uc.emulab.net 'bash -s' < nodescript.sh
+ssh node-7.hadoopcluster.cs331-uc.emulab.net 'bash -s' < nodescript.sh
 echo Finished Dan!
 exit
