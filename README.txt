@@ -120,10 +120,8 @@ vim $HOME/.bashrc
 JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 source /etc/environment
 
-source $HOME/.bashrc
-
 bin/hadoop namenode -format
-
+cd /mnt/extra/hadoop/
 ./bin/start-all.sh
 
 ./bin/stop-all.sh
@@ -139,6 +137,11 @@ ssh node-0.HadoopCluster.cs331-uc.emulab.net
 
 ssh-keyscan node-12.hadoopcluster.cs331-uc.emulab.net >> ~/.ssh/known_hosts
 
+sudo vi /etc/bash.bashrc
 
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME
+PATH=$PATH:$JAVA_HOME/bin
+export PATH
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # executed at /users/daniar/
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 # setenv JAVA_HOME /usr/lib/jvm/java-8-oracle
 
