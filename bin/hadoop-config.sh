@@ -18,6 +18,7 @@
 # also should not be passed any arguments, since we need original $*
 
 # resolve links - $0 may be a softlink
+export HADOOP_HOME=/mnt/extra/hadoop
 
 this="$0"
 while [ -h "$this" ]; do

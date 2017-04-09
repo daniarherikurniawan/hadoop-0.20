@@ -21,6 +21,7 @@
 # Run this on master node.
 
 usage="Usage: start-dfs.sh [-upgrade|-rollback]"
+export HADOOP_HOME=/mnt/extra/hadoop
 
 bin=`dirname "$0"`
 bin=`cd "$bin"; pwd`
