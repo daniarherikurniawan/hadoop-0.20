@@ -20,11 +20,12 @@
 
 bin=`dirname "$0"`
 bin=`cd "$bin"; pwd`
-
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
 . "$bin"/hadoop-config.sh
-
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
 # start dfs daemons
 "$bin"/start-dfs.sh --config $HADOOP_CONF_DIR
-
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
 # start mapred daemons
 "$bin"/start-mapred.sh --config $HADOOP_CONF_DIR
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
