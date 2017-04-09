@@ -139,9 +139,9 @@ ssh-keyscan node-12.hadoopcluster.cs331-uc.emulab.net >> ~/.ssh/known_hosts
 
 sudo vi /etc/bash.bashrc
 
-JAVA_HOME=/usr/lib/jvm/java-8-oracle
+JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
 export JAVA_HOME
-PATH=$PATH:$JAVA_HOME/bin
+PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre/bin
 export PATH
 
 
