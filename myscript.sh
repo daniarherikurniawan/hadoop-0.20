@@ -3,16 +3,17 @@
 # chmod 755 myscript.sh
 echo Starting the script!
 
-echo 1. Scan SSH fingerprints
-echo How many nodes on this experiment?
-read maxNodes
+# echo 1. Scan SSH fingerprints
+# echo How many nodes on this experiment?
+# read maxNodes
 
 
 # counter=0
 # while [ $counter -lt $maxNodes ]
 # do
 # 	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
-# 	echo \nScanning ssh fingerprint of $host
+# 	echo 
+# 	echo Scanning ssh fingerprint of $host
 # 	ssh-keygen -R $host
 # 	ssh-keyscan $host >> ~/.ssh/known_hosts
 # 	((counter++))
@@ -20,6 +21,6 @@ read maxNodes
 
 # echo All done
 
-ssh node-10.hadoopcluster.cs331-uc.emulab.net 'bash -s' < nodescript.sh
-echo Hello Dan!
+ssh node-4.hadoopcluster.cs331-uc.emulab.net 'bash -s' < nodescript.sh
+echo Finished Dan!
 exit
