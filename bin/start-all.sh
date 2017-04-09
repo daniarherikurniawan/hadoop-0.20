@@ -22,6 +22,8 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
 bin=`dirname "$0"`
 bin=`cd "$bin"; pwd`
 . "$bin"/hadoop-config.sh
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+
 # start dfs daemons
 echo $JAVA_HOME
 "$bin"/start-dfs.sh --config $HADOOP_CONF_DIR
