@@ -3,7 +3,7 @@
 
 <!-- Put site-specific property overrides in this file. -->
 <configuration>
-	
+
 	<property>
 	  <name>mapred.job.tracker</name>
 	  <value>node-0.hadoopcluster.cs331-uc.emulab.net:54311</value>
@@ -18,7 +18,7 @@
 		<value>/tmp/hadoop-ucare</value>
 	</property>
 
-<configuration>
+</configuration>
 
 <!-- <configuration>
 	<property>
