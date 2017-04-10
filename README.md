@@ -160,8 +160,9 @@ ssh-keygen -R $host
 
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub $host
 
-
-
+TEST MAPRED
+bash
+bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar  wordcount  /users/daniar/hadoop/gutenberg /users/daniar/gutenberg-output
 
 
 

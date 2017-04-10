@@ -6,10 +6,12 @@ echo Starting the script!
 echo How many nodes on this experiment?
 read maxNodes
 
+projURI=hadoopcluster.cs331-uc.emulab.net
+
 counter=0
 while [ $counter -lt $maxNodes ]
 do
-	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
+	host=node-$counter.$projURI
 	echo 
 	echo node: $host
 	echo ...... START Scanning ssh fingerprint 
@@ -31,6 +33,13 @@ do
 	((counter++))
 done
 
+echo ...... Starting MAP REDUCE Test
+host=node-0.$projURI
+ssh $host 'bash -s' < mapredscript.sh 
+echo open:
+echo 	http://$host:50070/ (namenode daemon)
+echo 	http://$host:50030/ (job tracker daemon)
+echo 	http://[slave-node]:50070/ (task tracker daemon)
 echo All done
 
 exit
