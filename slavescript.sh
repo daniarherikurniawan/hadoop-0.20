@@ -22,10 +22,11 @@ do
 done
 
 # switching the directory
-cd /users/daniar/hadoop
+# cd /users/daniar/hadoop
 
 # format namenode before using it
-bin/hadoop namenode -format
+# bin/hadoop namenode -format
 
 # Start master node 
-./bin/start-mapred.sh
+# ./bin/stop-mapred.sh
+# ./bin/start-mapred.sh

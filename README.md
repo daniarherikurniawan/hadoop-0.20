@@ -124,6 +124,9 @@ bin/hadoop namenode -format
 cd /mnt/extra/hadoop/
 ./bin/start-all.sh
 
+
+jps is a god
+
 git pull ucare-github-dan master
 
 git checkout conf/core-site.xml
@@ -149,5 +152,16 @@ JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
 export JAVA_HOME
 PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre/bin
 export PATH
+
+bash
+host=node-0.hadoopcluster.cs331-uc.emulab.net
+ssh-keygen -R $host
+	ssh-keyscan $host >> ~/.ssh/known_hosts
+
+ssh-copy-id -i $HOME/.ssh/id_rsa.pub $host
+
+
+
+
 
 

@@ -11,6 +11,16 @@
 	  The default is used if replication is not specified in create time.
 	  </description>
 	</property>
+
+	<property>
+	  <name>dfs.name.dir</name>
+	  <value>/tmp/hadoop-ucare/dfs/name</value>
+	</property>
+	<property>
+	  <name>dfs.data.dir</name>
+	  <value>/tmp/hadoop-ucare/dfs/data</value>
+	</property>
+
 </configuration>
 
 <!-- <configuration>

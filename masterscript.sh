@@ -53,4 +53,5 @@ git pull ucare-github-dan master
 bin/hadoop namenode -format
 
 # Start master node 
-./bin/stop-dfs.sh
+./bin/start-dfs.sh
+# ./bin/stop-dfs.sh

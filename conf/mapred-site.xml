@@ -15,7 +15,7 @@
 
 	<property>
 		<name>mapred.local.dir</name>
-		<value>/tmp/hadoop-ucare</value>
+		<value>/tmp/hadoop-ucare/mapred</value>
 	</property>
 
 </configuration>
