@@ -187,5 +187,6 @@ bin/hadoop namenode -format
 
 adding datanode on the fly : 
 	 bin/hadoop-daemon.sh start datanode
+	 bin/hadoop-daemon.sh start tasktracker
 
 
