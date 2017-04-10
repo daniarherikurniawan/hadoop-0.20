@@ -3,6 +3,7 @@
 
 <!-- Put site-specific property overrides in this file. -->
 <configuration>
+
 	<property>
 	  <name>fs.default.name</name>
 	  <value>hdfs://node-0.hadoopcluster.cs331-uc.emulab.net:54310</value>
@@ -12,6 +13,13 @@
 	  the FileSystem implementation class.  The uri's authority is used to
 	  determine the host, port, etc. for a filesystem.</description>
 	</property>
+
+	<property>
+	  <name>hadoop.tmp.dir</name>
+	  <value>/tmp/hadoop-core</value>
+	  <description>A base for other temporary directories.</description>
+	</property>
+
 </configuration>
 <!-- <configuration>
 	<property>
@@ -22,11 +30,6 @@
 
 <!-- 
 <configuration>
-	<property>
-	  <name>hadoop.tmp.dir</name>
-	  <value>/tmp/hadoop-ucare</value>
-	  <description>A base for other temporary directories.</description>
-	</property>
 
 	<property>
 	  <name>fs.default.name</name>
