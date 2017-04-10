@@ -50,7 +50,6 @@ src/docs/cn/uming.conf
 .DS_Store
 TestDFSIO_results.log
 file:/
-gutenberg/
 ivy/hadoop-core-pom.xml
 ivy/hadoop-examples-pom.xml
 ivy/hadoop-streaming-pom.xml
