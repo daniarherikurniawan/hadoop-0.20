@@ -37,9 +37,8 @@ echo ...... Starting MAP REDUCE Test
 host=node-0.$projURI
 ssh $host 'bash -s' < mapredscript.sh 
 echo open:
-echo 	http://$host:50070/ (namenode daemon)
-echo 	http://$host:50030/ (job tracker daemon)
-echo 	http://[slave-node]:50070/ (task tracker daemon)
+echo 	$host:50070 
+echo 	$host:50030 
 echo All done
 
 exit

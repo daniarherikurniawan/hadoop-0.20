@@ -162,7 +162,16 @@ ssh-copy-id -i $HOME/.ssh/id_rsa.pub $host
 
 TEST MAPRED
 bash
-bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar  wordcount  /users/daniar/hadoop/gutenberg /users/daniar/gutenberg-output
+bin/hadoop dfs -copyFromLocal gutenberg /gutenberg
+bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar wordcount /gutenberg /gutenberg-output
 
+
+bin/hadoop dfs -ls /
+
+
+cd /users/daniar/hadoop/
+git pull ucare-github-dan master
+./bin/stop-all.sh
+./bin/start-all.sh
 
 

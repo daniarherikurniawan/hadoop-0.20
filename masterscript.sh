@@ -53,7 +53,7 @@ git pull ucare-github-dan master
 bin/hadoop namenode -format
 
 # Start master node 
-./bin/start-dfs.sh
-./bin/start-mapred.sh
+./bin/start-all.sh
+# ./bin/start-mapred.sh
 # bin/stop-mapred.sh
 # ./bin/stop-dfs.sh
