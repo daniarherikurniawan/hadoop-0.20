@@ -168,10 +168,24 @@ bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar wordcount /gutenberg /g
 
 bin/hadoop dfs -ls /
 
+###UPDATING
+
+setenv JAVA_HOME /usr/lib/jvm/java-8-oracle/jre/
+setenv HADOOP_HOME /users/daniar/hadoop
 
 cd /users/daniar/hadoop/
 git pull ucare-github-dan master
 ./bin/stop-all.sh
-./bin/start-all.sh
+bin/hadoop namenode -format
+./bin/start-dfs.sh
+./bin/start-mapred.sh
+
+
+
+
+./bin/stop-dfs.sh
+
+adding datanode on the fly : 
+	 bin/hadoop-daemon.sh start datanode
 
 

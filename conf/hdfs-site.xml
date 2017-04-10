@@ -21,6 +21,24 @@
 	  <value>/tmp/hadoop-ucare/dfs/data</value>
 	</property>
 
+
+	<property>
+	  <name>dfs.hosts.exclude</name>
+	  <value>/users/daniar/hadoop/conf/exclude</value>
+	  <description>Names a file that contains a list of hosts that are
+	  not permitted to connect to the namenode.  The full pathname of the
+	  file must be specified.  If the value is empty, no hosts are
+	  excluded.</description>
+	</property> 
+
+
+	<property>
+	  <name>dfs.block.size</name>
+	  <value>8192</value>
+	  <!-- <value>67108864</value> -->
+	  <description>The default block size for new files.</description>
+	</property>
+
 </configuration>
 
 <!-- <configuration>

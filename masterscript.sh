@@ -50,7 +50,7 @@ git checkout conf/masters
 git pull ucare-github-dan master
 
 # format namenode before using it
-bin/hadoop namenode -format
+bin/hadoop namenode -format 
 
 # Start master node 
 ./bin/start-all.sh
