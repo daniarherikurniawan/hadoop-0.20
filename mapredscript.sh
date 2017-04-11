@@ -12,7 +12,7 @@ fileName=gutenbergX
 destination=/$1
 echo ..... Saving $fileName files to HDFS
 
-maxCopy=20
+maxCopy=$2
 counter=1
 while [ $counter -le $maxCopy ]
 do

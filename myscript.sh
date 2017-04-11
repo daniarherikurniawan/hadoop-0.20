@@ -10,8 +10,17 @@ echo Starting the script!
 echo How many nodes on this experiment?
 read maxNodes
 
-echo What is the destination folder?
+echo What is the HDFS destination folder?
 read hdfsFolder
+
+echo How many copy of $hdfsFolder?
+read numCopy
+
+echo How many threads of copyFromLocal?
+read numThreads
+echo  
+echo ================================================
+echo  
 
 git add --all .
 git commit -m "update the latest code" -a
@@ -45,9 +54,17 @@ projURI=hadoopcluster.cs331-uc.emulab.net
 # 	((counter++))
 # done
 # echo  
-# echo ...... Starting MAP REDUCE Test
-host=node-1.$projURI
-ssh $host 'bash -s' < mapredscript.sh $hdfsFolder
+echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
+
+counter=0
+while [ $counter -lt $numThreads ]
+	host=node-$counter.$projURI
+	ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy &
+	((counter++))
+done
+
+wait
+
 echo open:
 echo 	$host:50070 
 echo 	$host:50030 
