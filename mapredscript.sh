@@ -8,8 +8,11 @@ export HADOOP_HOME=/users/daniar/hadoop
 cd hadoop/
 # git pull ucare-github-dan master
 
+echo What is the destination folder?
+read folder
+
 fileName=gutenbergX
-destination=/$fileName0
+destination=/$folder
 echo ..... Saving $fileName files to HDFS
 
 maxCopy=20
