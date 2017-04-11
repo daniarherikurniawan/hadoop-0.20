@@ -189,4 +189,5 @@ adding datanode on the fly :
 	 bin/hadoop-daemon.sh start datanode
 	 bin/hadoop-daemon.sh start tasktracker
 
-
+removing datanode on the fly :
+	http://maheshwaranm.blogspot.co.id/2013/07/how-to-decommission-nodes.html
