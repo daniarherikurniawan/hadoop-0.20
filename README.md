@@ -34,9 +34,15 @@ by mortbay.org.
 ===================== DANIAR ======================================
 clone : 
 
+
+branch=branch-0.23.11
+rm -rf $branch
+mkdir $branch
+cd $branch
 git init
-git remote add -t branch-0.20 -f origin https://github.com/ucare-uchicago/hadoop.git
-git checkout branch-0.20
+git remote add -t $branch -f origin https://github.com/apache/hadoop.git
+git checkout $branch
+cd ..
 
 
 https://hadoop.apache.org/docs/r0.23.11/hadoop-project-dist/hadoop-common/SingleCluster.html
@@ -196,3 +202,12 @@ removing datanode on the fly :
 	155.98.39.119
 	logging : http://pc284.emulab.net:50070/logs/hadoop-daniar-namenode-node-0.hadoopcluster.cs331-uc.emulab.net.log
 
+download logs :
+	aria2c -x 16 http://pc284.emulab.net:50070/logs/hadoop-daniar-namenode-node-0.hadoopcluster.cs331-uc.emulab.net.log
+
+
+[4/11/17, 7:26:13 PM] Riza Suminto: Go back to your unmodified 0.20, and just fill up your cluster with enough datablocks as you did on your unit test,
+[4/11/17, 7:26:43 PM] Riza Suminto: there is an hdfs command to invoke FullBlockReport from all nodes at once,
+[4/11/17, 7:27:46 PM] Riza Suminto: https://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#dfsadmin
+[4/11/17, 7:28:05 PM] Riza Suminto: hdfs dfsadmin -triggerBlockReport
+[4/11/17, 7:29:11 PM] Riza Suminto: you only need to measure NameNode time and CPU Usage during full block report processing,

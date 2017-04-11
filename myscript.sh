@@ -10,6 +10,11 @@ echo Starting the script!
 echo How many nodes on this experiment?
 read maxNodes
 
+git add --all .
+git commit -m "update the latest code" -a
+git push origin master
+echo Finished updating git codes!
+
 projURI=hadoopcluster.cs331-uc.emulab.net
 
 counter=0
@@ -36,7 +41,7 @@ do
 
 	((counter++))
 done
-
+echo  
 echo ...... Starting MAP REDUCE Test
 host=node-0.$projURI
 ssh $host 'bash -s' < mapredscript.sh 
