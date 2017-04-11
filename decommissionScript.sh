@@ -1,3 +1,6 @@
+#!/bin/bash
+# A Bash script, by Daniar
+# chmod 755 myscript.sh
 
 echo ================================================
 echo               DECOMMISSION NODE
@@ -22,8 +25,10 @@ do
 
 	((counter++))
 done
-git add --all .
+# git add --all .
 git commit -m "update excluded node for decommissioning" -a
 git push origin master
-
+echo  
+echo .....Start decommissioning
 ssh $host 'bash -s' < decommission.sh
+echo .....Finish decommissioning
