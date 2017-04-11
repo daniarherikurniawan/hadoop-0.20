@@ -58,6 +58,7 @@ echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
 
 counter=0
 while [ $counter -lt $numThreads ]
+do
 	host=node-$counter.$projURI
 	(ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy) &
 	((counter++))
