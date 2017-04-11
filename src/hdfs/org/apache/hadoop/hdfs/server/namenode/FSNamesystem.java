@@ -3849,11 +3849,15 @@ public class FSNamesystem implements FSConstants, FSNamesystemMBean {
           if (inExcludedHostsList(node, null)) {
             if (!node.isDecommissionInProgress() && 
                 !node.isDecommissioned()) {
+
+              node.timeDecommissionStarted = now();
               startDecommission(node);   // case 3.
             }
           } else {
             if (node.isDecommissionInProgress() || 
                 node.isDecommissioned()) {
+              long timeTakenToDecommission = now() - node.timeDecommissionStarted;
+              LOG.info("DAN: Stop Decommissioning node " + node.getName()+ "  took "+ timeTakenToDecommission + " msecs");
               stopDecommission(node);   // case 4.
             } 
           }

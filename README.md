@@ -191,3 +191,8 @@ adding datanode on the fly :
 
 removing datanode on the fly :
 	http://maheshwaranm.blogspot.co.id/2013/07/how-to-decommission-nodes.html
+	155.98.39.129
+	155.98.39.126
+	155.98.39.119
+	logging : http://pc284.emulab.net:50070/logs/hadoop-daniar-namenode-node-0.hadoopcluster.cs331-uc.emulab.net.log
+

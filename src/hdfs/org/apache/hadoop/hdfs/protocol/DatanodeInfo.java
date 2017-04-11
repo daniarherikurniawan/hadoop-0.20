@@ -45,6 +45,9 @@ public class DatanodeInfo extends DatanodeID implements Node {
   protected int xceiverCount;
   protected String location = NetworkTopology.DEFAULT_RACK;
 
+  //DAN
+  public long timeDecommissionStarted;
+
   /** HostName as suplied by the datanode during registration as its 
    * name. Namenode uses datanode IP address as the name.
    */
