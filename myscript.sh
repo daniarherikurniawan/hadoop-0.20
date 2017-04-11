@@ -29,38 +29,38 @@ echo Finished updating git codes!
 
 projURI=hadoopcluster.cs331-uc.emulab.net
 
-# counter=0
-# while [ $counter -lt $maxNodes ]
-# do
-# 	host=node-$counter.$projURI
-# 	echo 
-# 	echo node: $host
-# 	echo ...... START Scanning ssh fingerprint 
-# 	ssh-keygen -R $host
-# 	ssh-keyscan $host >> ~/.ssh/known_hosts
-# 	echo ...... END Scanning ssh fingerprint 
+counter=0
+while [ $counter -lt $maxNodes ]
+do
+	host=node-$counter.$projURI
+	echo 
+	echo node: $host
+	echo ...... START Scanning ssh fingerprint 
+	ssh-keygen -R $host
+	ssh-keyscan $host >> ~/.ssh/known_hosts
+	echo ...... END Scanning ssh fingerprint 
 
-# 	if [ $counter -eq 0 ]
-# 	then
-# 		echo ...... Starting masterscript
-# 		ssh $host 'bash -s' < masterscript.sh $maxNodes
-# 	else
-# 		echo ...... Starting slavescript
-# 		ssh $host 'bash -s' < slavescript.sh $maxNodes
-# 	fi
+	if [ $counter -eq 0 ]
+	then
+		echo ...... Starting masterscript
+		ssh $host 'bash -s' < masterscript.sh $maxNodes
+	else
+		echo ...... Starting slavescript
+		ssh $host 'bash -s' < slavescript.sh $maxNodes
+	fi
 
-# 	echo ...... Finished running nodescript
+	echo ...... Finished running nodescript
 
-# 	((counter++))
-# done
-# echo  
+	((counter++))
+done
+echo  
 echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
 
 counter=0
 while [ $counter -lt $numThreads ]
 do
 	host=node-$counter.$projURI
-	(ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy) &
+	(echo "output from $host"; ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy) &
 	((counter++))
 done
 
