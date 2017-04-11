@@ -1,6 +1,10 @@
 #!/bin/bash
 # A Bash script, by Daniar
 # chmod 755 myscript.sh
+
+echo ================================================
+echo                MY START SCRIPT
+echo ================================================
 echo Starting the script!
 
 echo How many nodes on this experiment?
