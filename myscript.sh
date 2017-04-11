@@ -10,6 +10,9 @@ echo Starting the script!
 echo How many nodes on this experiment?
 read maxNodes
 
+echo What is the destination folder?
+read hdfsFolder
+
 git add --all .
 git commit -m "update the latest code" -a
 git push origin master
@@ -44,7 +47,7 @@ projURI=hadoopcluster.cs331-uc.emulab.net
 # echo  
 # echo ...... Starting MAP REDUCE Test
 host=node-1.$projURI
-ssh $host 'bash -s' < mapredscript.sh 
+ssh $host 'bash -s' < mapredscript.sh $hdfsFolder
 echo open:
 echo 	$host:50070 
 echo 	$host:50030 
