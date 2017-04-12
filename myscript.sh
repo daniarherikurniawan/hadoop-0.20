@@ -43,7 +43,7 @@ do
 	if [ $counter -eq 0 ]
 	then
 		ssh $host 'bash -s' < masterscript.sh $maxNodes &
-	else
+	# else
 		# ssh $host 'bash -s' < slavescript.sh $maxNodes &
 	fi
 
