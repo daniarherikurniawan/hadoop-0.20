@@ -24,7 +24,7 @@ echo ..... Starting download datanode logs
 counter=1
 while [ $counter -lt $maxNodes ]
 do
-	aria2c -x 16 -o DN-$counter.log $host/logs/hadoop-daniar-datanode-node-$counter.$project.log &
+	aria2c -x 16 -o DN-$counter.log $host/logs/hadoop-daniar-datanode-node-$counter.$project.log
 
 	((counter++))
 done

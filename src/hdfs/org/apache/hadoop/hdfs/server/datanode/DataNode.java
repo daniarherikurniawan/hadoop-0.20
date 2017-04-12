@@ -758,7 +758,7 @@ public class DataNode extends Configured
             // DAN: make sure that lastBlockReport is not negative
             ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) 
               || 
-            // DAN: For sending FBR at the same time (10 mins after starting DN)
+            // DAN: For sending FBR at the same time (15 mins after starting DN)
             (!FBRisSent && (now() > (startTimeRefference + 900000))) 
           ) {
           //
