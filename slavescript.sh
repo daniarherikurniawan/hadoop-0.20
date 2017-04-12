@@ -9,7 +9,7 @@ export HADOOP_HOME=/users/daniar/hadoop
 sudo mkdir -p /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chown -R $USER:cs331-uc /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chmod -R 775 /tmp/hadoop-ucare /tmp/hadoop-core 
-rm -rf known_hosts.*
+# ###rm -rf known_hosts.*
 
 # scan ssh fingerprints for the cluster
 # counter=0
@@ -23,8 +23,8 @@ rm -rf known_hosts.*
 # 	((counter++))
 # done
 
-wait
-echo All subshells scanning ssh fingerprints are finished
+# wait
+# echo All subshells scanning ssh fingerprints are finished
 
 # switching the directory
 # cd /users/daniar/hadoop
