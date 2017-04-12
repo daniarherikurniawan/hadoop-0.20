@@ -752,13 +752,18 @@ public class DataNode extends Configured
           }
         }
 
+        LOG.info("DAN: value main condition   = " + (((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval)  || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
+        LOG.info("DAN: 1st condition          = "+ ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) );
+        LOG.info("DAN: 2nd condition          = " + (!FBRisSent && (now() > (startTimeRefference + 600000))));
+
+
         // send block report
         if (
             // DAN: make sure that lastBlockReport is not negative
             ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) 
               || 
             // DAN: For sending FBR at the same time (10 mins after starting DN)
-            (!FBRisSent && (now() > (startTimeRefference + 600000))) 
+            (!FBRisSent && (now() > (startTimeRefference + 1200000))) 
           ) {
           //
           // Send latest blockinfo report if timer has expired.
