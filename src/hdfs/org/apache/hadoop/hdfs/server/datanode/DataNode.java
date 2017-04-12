@@ -176,6 +176,7 @@ public class DataNode extends Configured
 
   // DAN: 
   long startTimeRefference;
+  boolean FBRisSent = false;
 
   private DataStorage storage = null;
   private HttpServer infoServer = null;
@@ -753,14 +754,17 @@ public class DataNode extends Configured
 
         // send block report
         if (startTime - lastBlockReport > blockReportInterval || 
-          // DAN: For sending FBR at the same time (30 mins after starting DN)
-          now() > (startTimeRefference + 1800000) ) {
+            // DAN: For sending FBR at the same time (10 mins after starting DN)
+            (!FBRisSent && (now() > (startTimeRefference + 600000))) 
+          ) {
           //
           // Send latest blockinfo report if timer has expired.
           // Get back a list of local block(s) that are obsolete
           // and can be safely GC'ed.
           //
-          LOG.info("DAN: STARTING BLOCKREPORT at "+ now());
+          LOG.info("DAN: STARTING BLOCKREPORT at "+ (now()/1000/60));
+          FBRisSent = true;
+
           long brStartTime = now();
           Block[] bReport = data.getBlockReport();
           DatanodeCommand cmd = namenode.blockReport(dnRegistration,
