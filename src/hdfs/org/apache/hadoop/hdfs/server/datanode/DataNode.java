@@ -762,8 +762,13 @@ public class DataNode extends Configured
           // Get back a list of local block(s) that are obsolete
           // and can be safely GC'ed.
           //
-          LOG.info("DAN: value condition        = " + (startTime - lastBlockReport > blockReportInterval || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
-          LOG.info("DAN: value my condition     = " + (!FBRisSent && (now() > (startTimeRefference + 600000))));
+          LOG.info("DAN: value main condition   = " + (startTime - lastBlockReport > blockReportInterval || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
+          LOG.info("DAN: 1st condition          = "+ (startTime - lastBlockReport > blockReportInterval));
+          LOG.info("DAN: startTime              = "+ startTime);
+          LOG.info("DAN: lastBlockReport        = "+ lastBlockReport);
+          LOG.info("DAN: blockReportInterval    = "+ blockReportInterval);
+          LOG.info("");
+          LOG.info("DAN: 2nd condition          = " + (!FBRisSent && (now() > (startTimeRefference + 600000))));
           LOG.info("DAN: value FBRisSent        = "+ FBRisSent);
           LOG.info("DAN: value now()            = "+ now());
           LOG.info("DAN: startTimeRefference    = "+ startTimeRefference);
