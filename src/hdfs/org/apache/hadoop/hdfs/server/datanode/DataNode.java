@@ -219,7 +219,9 @@ public class DataNode extends Configured
 
     try {
       // DAN: Initializing time refference
-      startTimeRefference = now();
+      long now = now();
+      long secs = now - now%1000;
+      startTimeRefference = ( secs - secs%3) *1000;
       LOG.info("DAN: startTimeRefference    = "+ startTimeRefference);
       
       startDataNode(conf, dataDirs);

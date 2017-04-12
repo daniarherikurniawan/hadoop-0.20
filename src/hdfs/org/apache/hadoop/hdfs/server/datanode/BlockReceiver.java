@@ -831,8 +831,8 @@ class BlockReceiver implements java.io.Closeable, FSConstants {
           }
         }
       }
-      LOG.info("PacketResponder " + numTargets + 
-               " for block " + block + " terminating");
+      // LOG.info("PacketResponder " + numTargets + 
+      //          " for block " + block + " terminating");
     }
 
     /**
@@ -1001,8 +1001,8 @@ class BlockReceiver implements java.io.Closeable, FSConstants {
           }
         }
       }
-      LOG.info("PacketResponder " + numTargets + 
-               " for block " + block + " terminating");
+      // LOG.info("PacketResponder " + numTargets + 
+      //          " for block " + block + " terminating");
     }
   }
   
