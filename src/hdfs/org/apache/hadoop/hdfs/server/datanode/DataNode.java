@@ -752,10 +752,6 @@ public class DataNode extends Configured
           }
         }
 
-        LOG.info("DAN: value main condition   = " + (((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval)  || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
-        LOG.info("DAN: 1st condition          = "+ ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) );
-        LOG.info("DAN: 2nd condition          = " + (!FBRisSent && (now() > (startTimeRefference + 600000))));
-
 
         // send block report
         if (
@@ -763,24 +759,30 @@ public class DataNode extends Configured
             ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) 
               || 
             // DAN: For sending FBR at the same time (10 mins after starting DN)
-            (!FBRisSent && (now() > (startTimeRefference + 1200000))) 
+            (!FBRisSent && (now() > (startTimeRefference + 900000))) 
           ) {
           //
           // Send latest blockinfo report if timer has expired.
           // Get back a list of local block(s) that are obsolete
           // and can be safely GC'ed.
           //
-          LOG.info("DAN: value main condition   = " + (((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval)  || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
-          LOG.info("DAN: 1st condition          = "+ ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) );
-          LOG.info("DAN: startTime              = "+ startTime);
-          LOG.info("DAN: lastBlockReport        = "+ lastBlockReport);
-          LOG.info("DAN: blockReportInterval    = "+ blockReportInterval);
-          LOG.info("");
-          LOG.info("DAN: 2nd condition          = " + (!FBRisSent && (now() > (startTimeRefference + 600000))));
-          LOG.info("DAN: value FBRisSent        = "+ FBRisSent);
-          LOG.info("DAN: value now()            = "+ now());
-          LOG.info("DAN: startTimeRefference    = "+ startTimeRefference);
-          LOG.info("DAN: startTimeRefference++  = "+ (startTimeRefference + 600000));
+
+        LOG.info("DAN: value main condition   = " + (((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval)  || (!FBRisSent && (now() > (startTimeRefference + 900000)))));
+        LOG.info("DAN: 1st condition          = "+ ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) );
+        LOG.info("DAN: 2nd condition          = " + (!FBRisSent && (now() > (startTimeRefference + 900000))));
+
+        LOG.info("DAN: value main condition   = " + (((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval)  || (!FBRisSent && (now() > (startTimeRefference + 900000)))));
+        LOG.info("DAN: 1st condition          = "+ ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) );
+        LOG.info("DAN: startTime              = "+ startTime);
+        LOG.info("DAN: lastBlockReport        = "+ lastBlockReport);
+        LOG.info("DAN: blockReportInterval    = "+ blockReportInterval);
+        LOG.info("");
+        LOG.info("DAN: 2nd condition          = " + (!FBRisSent && (now() > (startTimeRefference + 900000))));
+        LOG.info("DAN: value FBRisSent        = "+ FBRisSent);
+        LOG.info("DAN: value now()            = "+ now());
+        LOG.info("DAN: startTimeRefference    = "+ startTimeRefference);
+        LOG.info("DAN: startTimeRefference++  = "+ (startTimeRefference + 900000));
+
 
           LOG.info("DAN: STARTING BLOCKREPORT at "+ (now()/1000/60));
           FBRisSent = true;
