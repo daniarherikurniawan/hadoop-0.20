@@ -753,7 +753,7 @@ public class DataNode extends Configured
         }
 
         // DAN: Delay first FBR
-        int delayFirstFBR = 600*1000; // in millisecs
+        int delayFirstFBR = 360*1000; // in millisecs
 
         // send block report
         if (

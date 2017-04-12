@@ -16,8 +16,8 @@ read hdfsFolder
 echo How many copy of $hdfsFolder? "(5 for 50k blocks)"
 read numCopy
 
-# echo How many threads of copyFromLocal? 
-numThreads=maxNodes
+echo How many threads of copyFromLocal? 
+read numThreads
 
 echo  
 echo ================================================
