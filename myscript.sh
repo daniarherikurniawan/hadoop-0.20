@@ -30,11 +30,11 @@ echo Finished updating git codes!
 
 projURI=hadoopcluster.cs331-uc.emulab.net
 
-host=node-$counter.$projURI
 
 counter=0
 while [ $counter -lt $maxNodes ]
 do
+	host=node-$counter.$projURI
 	echo 
 	echo node: $host
 	echo ...... START Scanning ssh fingerprint 
@@ -49,6 +49,7 @@ done
 counter=0
 while [ $counter -lt $maxNodes ]
 do
+	host=node-$counter.$projURI
 	if [ $counter -eq 0 ]
 	then
 		ssh $host 'bash -s' < masterscript.sh $maxNodes &
