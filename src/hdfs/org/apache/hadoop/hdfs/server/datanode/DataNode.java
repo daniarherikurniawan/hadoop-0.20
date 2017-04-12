@@ -219,7 +219,9 @@ public class DataNode extends Configured
 
     try {
       // DAN: Initializing time refference
-      startTimeRefference = now();
+      long now = now();
+
+      startTimeRefference = ( now - now%1000 ) - now%60000;
       
       startDataNode(conf, dataDirs);
     } catch (IOException ie) {
@@ -753,7 +755,7 @@ public class DataNode extends Configured
         }
 
         // DAN: Delay first FBR
-        int delayFirstFBR = 180*1000; // in millisecs
+        int delayFirstFBR = 360*1000; // in millisecs
 
         // send block report
         if (
