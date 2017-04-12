@@ -753,7 +753,10 @@ public class DataNode extends Configured
         }
 
         // send block report
-        if (startTime - lastBlockReport > blockReportInterval || 
+        if (
+            // DAN: make sure that lastBlockReport is not negative
+            ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) 
+              || 
             // DAN: For sending FBR at the same time (10 mins after starting DN)
             (!FBRisSent && (now() > (startTimeRefference + 600000))) 
           ) {
@@ -762,8 +765,8 @@ public class DataNode extends Configured
           // Get back a list of local block(s) that are obsolete
           // and can be safely GC'ed.
           //
-          LOG.info("DAN: value main condition   = " + (startTime - lastBlockReport > blockReportInterval || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
-          LOG.info("DAN: 1st condition          = "+ (startTime - lastBlockReport > blockReportInterval));
+          LOG.info("DAN: value main condition   = " + (((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval)  || (!FBRisSent && (now() > (startTimeRefference + 600000)))));
+          LOG.info("DAN: 1st condition          = "+ ((lastBlockReport > 0) && startTime - lastBlockReport > blockReportInterval) );
           LOG.info("DAN: startTime              = "+ startTime);
           LOG.info("DAN: lastBlockReport        = "+ lastBlockReport);
           LOG.info("DAN: blockReportInterval    = "+ blockReportInterval);
