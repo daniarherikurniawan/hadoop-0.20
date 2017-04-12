@@ -173,6 +173,10 @@ public class DataNode extends Configured
   long initialBlockReportDelay = BLOCKREPORT_INITIAL_DELAY * 1000L;
   long lastHeartbeat = 0;
   long heartBeatInterval;
+
+  // DAN: 
+  long startTimeRefference;
+
   private DataStorage storage = null;
   private HttpServer infoServer = null;
   DataNodeMetrics myMetrics;
@@ -213,6 +217,9 @@ public class DataNode extends Configured
     datanodeObject = this;
 
     try {
+      // DAN: Initializing time refference
+      startTimeRefference = now();
+      
       startDataNode(conf, dataDirs);
     } catch (IOException ie) {
       shutdown();
@@ -745,12 +752,15 @@ public class DataNode extends Configured
         }
 
         // send block report
-        if (startTime - lastBlockReport > blockReportInterval) {
+        if (startTime - lastBlockReport > blockReportInterval || 
+          // DAN: For sending FBR at the same time (30 mins after starting DN)
+          now() > (startTimeRefference + 1800000) ) {
           //
           // Send latest blockinfo report if timer has expired.
           // Get back a list of local block(s) that are obsolete
           // and can be safely GC'ed.
           //
+          LOG.info("DAN: STARTING BLOCKREPORT at "+ now());
           long brStartTime = now();
           Block[] bReport = data.getBlockReport();
           DatanodeCommand cmd = namenode.blockReport(dnRegistration,

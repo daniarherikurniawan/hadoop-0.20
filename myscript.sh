@@ -42,17 +42,18 @@ do
 
 	if [ $counter -eq 0 ]
 	then
-		echo ...... Starting masterscript
-		ssh $host 'bash -s' < masterscript.sh $maxNodes
+		ssh $host 'bash -s' < masterscript.sh $maxNodes &
 	else
-		echo ...... Starting slavescript
-		ssh $host 'bash -s' < slavescript.sh $maxNodes
+		ssh $host 'bash -s' < slavescript.sh $maxNodes &
 	fi
-
-	echo ...... Finished running nodescript
 
 	((counter++))
 done
+
+wait
+echo All subshells finished
+echo ...... Finished Starting DN and NN
+
 echo  
 echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
 

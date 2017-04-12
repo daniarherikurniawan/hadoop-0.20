@@ -8,7 +8,7 @@ export HADOOP_HOME=/users/daniar/hadoop
 cd hadoop/
 # git pull ucare-github-dan master
 
-fileName=gutenbergX
+fileName=gutenberg
 destination=/$1
 echo ..... Saving $fileName files to HDFS
 
@@ -16,12 +16,17 @@ maxCopy=$2
 counter=1
 while [ $counter -le $maxCopy ]
 do
-	bin/hadoop dfs -copyFromLocal $fileName $destination$counter
-	echo Folder $fileName is copied to $destination$counter
+	( 
+		bin/hadoop dfs -copyFromLocal $fileName $destination$counter;
+		echo Folder $fileName is copied to $destination$counter
+	) &
 
 	((counter++))
 done
 
+wait
+echo All subshells copying local files to hdfs are finished
+echo  
 echo ..... Finish saving $fileName files to HDFS
 echo  
 echo ..... Start MapRed Job

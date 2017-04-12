@@ -122,6 +122,7 @@ vim $HOME/.bashrc
 
 	# Add Hadoop bin/ directory to PATH
 	export PATH=$PATH:$HADOOP_HOME/bin
+```
 
 JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 source /etc/environment
@@ -211,3 +212,17 @@ download logs :
 [4/11/17, 7:27:46 PM] Riza Suminto: https://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#dfsadmin
 [4/11/17, 7:28:05 PM] Riza Suminto: hdfs dfsadmin -triggerBlockReport
 [4/11/17, 7:29:11 PM] Riza Suminto: you only need to measure NameNode time and CPU Usage during full block report processing,
+
+
+clean up log 
+node-0:~/hadoop/logs> echo "" > hadoop-daniar-namenode-node-0.hadoopcluster.cs331-uc.emulab.net.log
+node-0:~/hadoop/logs> ls -lah hadoop-daniar-namenode-node-0.hadoopcluster.cs331-uc.emulab.net.log
+
+
+### Important:
+
+setenv JAVA_HOME /usr/lib/jvm/java-8-oracle/jre/
+setenv HADOOP_HOME /users/daniar/hadoop
+bin/hadoop dfsadmin -getDatanodeInfo node-16.hadoopcluster.cs331-uc.emulab.net
+bin/hadoop fsck -racks
+

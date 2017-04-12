@@ -14,12 +14,16 @@ sudo chmod -R 775 /tmp/hadoop-ucare /tmp/hadoop-core
 counter=0
 while [ $counter -lt $1 ]
 do
-	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
-	ssh-keygen -R $host
-	ssh-keyscan $host >> ~/.ssh/known_hosts
-
+	( 
+		host=node-$counter.hadoopcluster.cs331-uc.emulab.net;
+		ssh-keygen -R $host;
+		ssh-keyscan $host >> ~/.ssh/known_hosts 
+	) &
 	((counter++))
 done
+
+wait
+echo All subshells scanning ssh fingerprints are finished
 
 # switching the directory
 # cd /users/daniar/hadoop
