@@ -33,40 +33,40 @@ counter=0
 while [ $counter -lt $maxNodes ]
 do
 	host=node-$counter.$projURI
-	# echo 
-	# echo node: $host
-	# echo ...... START Scanning ssh fingerprint 
-	# ssh-keygen -R $host
-	# ssh-keyscan $host >> ~/.ssh/known_hosts
-	# echo ...... END Scanning ssh fingerprint 
+	echo 
+	echo node: $host
+	echo ...... START Scanning ssh fingerprint 
+	ssh-keygen -R $host
+	ssh-keyscan $host >> ~/.ssh/known_hosts
+	echo ...... END Scanning ssh fingerprint 
 
 	if [ $counter -eq 0 ]
 	then
 		ssh $host 'bash -s' < masterscript.sh $maxNodes &
-	# else
-		# ssh $host 'bash -s' < slavescript.sh $maxNodes &
+	else
+		ssh $host 'bash -s' < slavescript.sh $maxNodes &
 	fi
 
 	((counter++))
 done
 
-# wait
-# echo All subshells finished
-# echo ...... Finished Starting DN and NN
+wait
+echo All subshells finished
+echo ...... Finished Starting DN and NN
 
-# echo  
-# echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
+echo  
+echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
 
-# counter=0
-# while [ $counter -lt $numThreads ]
-# do
-# 	host=node-$counter.$projURI
-# 	(echo "output from $host"; ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy) &
-# 	((counter++))
-# done
+counter=0
+while [ $counter -lt $numThreads ]
+do
+	host=node-$counter.$projURI
+	(echo "output from $host"; ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy) &
+	((counter++))
+done
 
-# wait
-# echo All subshells finished
+wait
+echo All subshells finished
 
 echo open:
 echo 	$host:50070 
