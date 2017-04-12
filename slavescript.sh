@@ -9,6 +9,7 @@ export HADOOP_HOME=/users/daniar/hadoop
 sudo mkdir -p /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chown -R $USER:cs331-uc /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chmod -R 775 /tmp/hadoop-ucare /tmp/hadoop-core 
+rm -rf known_hosts.*
 
 # scan ssh fingerprints for the cluster
 counter=0
