@@ -10,21 +10,21 @@ sudo mkdir -p /tmp/hadoop-ucare /tmp/hadoop-core
 sudo chown -R $USER:cs331-uc /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chmod -R 775 /tmp/hadoop-ucare /tmp/hadoop-core 
 
-# scan ssh fingerprints for the cluster
-counter=0
-while [ $counter -lt $1 ]
-do
-	( 
-		host=node-$counter.hadoopcluster.cs331-uc.emulab.net;
-		ssh-keygen -R $host ;
-		ssh-keyscan $host >> ~/.ssh/known_hosts 
-	) &
-	((counter++))
-done
+# # scan ssh fingerprints for the cluster
+# counter=0
+# while [ $counter -lt $1 ]
+# do
+# 	( 
+# 		host=node-$counter.hadoopcluster.cs331-uc.emulab.net;
+# 		ssh-keygen -R $host ;
+# 		ssh-keyscan $host >> ~/.ssh/known_hosts 
+# 	) &
+# 	((counter++))
+# done
 
-wait
-echo All subshells scanning ssh fingerprints are finished
-# Removing folder and loading it with new installation
+# wait
+# echo All subshells scanning ssh fingerprints are finished
+# # Removing folder and loading it with new installation
 DIR=/users/daniar/hadoop
 if [ -d "$DIR" ]; then
     printf '%s\n' "Removing Lock ($DIR)"
