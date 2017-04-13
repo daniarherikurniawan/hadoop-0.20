@@ -38,8 +38,8 @@ do
 	echo 
 	echo node: $host
 	echo ...... START Scanning ssh fingerprint 
-	ssh-keygen -R $host
-	ssh-keyscan $host >> ~/.ssh/known_hosts 
+	# ssh-keygen -R $host
+	# ssh-keyscan $host >> ~/.ssh/known_hosts 
 	echo ...... END Scanning ssh fingerprint 
 
 	((counter++))

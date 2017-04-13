@@ -56,7 +56,7 @@ git pull ucare-github-dan master
 bin/hadoop namenode -format 
 
 # Start master node 
-./bin/stop-all.sh
+# ./bin/stop-all.sh
 ./bin/start-all.sh
 # ./bin/start-mapred.sh
 # bin/stop-mapred.sh
