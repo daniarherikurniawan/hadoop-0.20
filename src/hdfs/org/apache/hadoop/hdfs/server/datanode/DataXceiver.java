@@ -225,9 +225,9 @@ class DataXceiver implements Runnable, FSConstants {
     //
     Block block = new Block(in.readLong(), 
         dataXceiverServer.estimateBlockSize, in.readLong());
-    // LOG.info("Receiving block " + block + 
-    //          " src: " + remoteAddress +
-    //          " dest: " + localAddress);
+    LOG.info("Receiving block " + block + 
+             " src: " + remoteAddress +
+             " dest: " + localAddress);
     int pipelineSize = in.readInt(); // num of datanodes in entire pipeline
     boolean isRecovery = in.readBoolean(); // is this part of recovery?
     String client = Text.readString(in); // working on behalf of this client
