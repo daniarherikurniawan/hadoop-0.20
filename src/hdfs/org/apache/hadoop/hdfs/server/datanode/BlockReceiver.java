@@ -805,17 +805,17 @@ class BlockReceiver implements java.io.Closeable, FSConstants {
                 datanode.myMetrics.blocksWritten.inc();
                 datanode.notifyNamenodeReceivedBlock(block, 
                     DataNode.EMPTY_DEL_HINT);
-                // if (ClientTraceLog.isInfoEnabled() &&
-                //     receiver.clientName.length() > 0) {
-                  // ClientTraceLog.info(String.format(DN_CLIENTTRACE_FORMAT,
-                  //       receiver.inAddr, receiver.myAddr, block.getNumBytes(),
-                  //       "HDFS_WRITE", receiver.clientName,
-                  //       datanode.dnRegistration.getStorageID(), block));
-                // } else {
-                  // LOG.info("Received block " + block + 
-                  //          " of size " + block.getNumBytes() + 
-                  //          " from " + receiver.inAddr);
-                // }
+                if (ClientTraceLog.isInfoEnabled() &&
+                    receiver.clientName.length() > 0) {
+                  ClientTraceLog.info(String.format(DN_CLIENTTRACE_FORMAT,
+                        receiver.inAddr, receiver.myAddr, block.getNumBytes(),
+                        "HDFS_WRITE", receiver.clientName,
+                        datanode.dnRegistration.getStorageID(), block));
+                } else {
+                  LOG.info("Received block " + block + 
+                           " of size " + block.getNumBytes() + 
+                           " from " + receiver.inAddr);
+                }
               }
               lastPacket = true;
             }
@@ -831,8 +831,8 @@ class BlockReceiver implements java.io.Closeable, FSConstants {
           }
         }
       }
-      // LOG.info("PacketResponder " + numTargets + 
-      //          " for block " + block + " terminating");
+      LOG.info("PacketResponder " + numTargets + 
+               " for block " + block + " terminating");
     }
 
     /**
@@ -941,17 +941,17 @@ class BlockReceiver implements java.io.Closeable, FSConstants {
               datanode.myMetrics.blocksWritten.inc();
               datanode.notifyNamenodeReceivedBlock(block, 
                   DataNode.EMPTY_DEL_HINT);
-              // if (ClientTraceLog.isInfoEnabled() &&
-              //     receiver.clientName.length() > 0) {
-                // ClientTraceLog.info(String.format(DN_CLIENTTRACE_FORMAT,
-                //       receiver.inAddr, receiver.myAddr, block.getNumBytes(),
-                //       "HDFS_WRITE", receiver.clientName,
-                //       datanode.dnRegistration.getStorageID(), block));
-              // } else {
-              //   LOG.info("Received block " + block + 
-              //            " of size " + block.getNumBytes() + 
-              //            " from " + receiver.inAddr);
-              // }
+              if (ClientTraceLog.isInfoEnabled() &&
+                  receiver.clientName.length() > 0) {
+                ClientTraceLog.info(String.format(DN_CLIENTTRACE_FORMAT,
+                      receiver.inAddr, receiver.myAddr, block.getNumBytes(),
+                      "HDFS_WRITE", receiver.clientName,
+                      datanode.dnRegistration.getStorageID(), block));
+              } else {
+                LOG.info("Received block " + block + 
+                         " of size " + block.getNumBytes() + 
+                         " from " + receiver.inAddr);
+              }
             }
 
             // construct my ack message.
@@ -1001,8 +1001,8 @@ class BlockReceiver implements java.io.Closeable, FSConstants {
           }
         }
       }
-      // LOG.info("PacketResponder " + numTargets + 
-      //          " for block " + block + " terminating");
+      LOG.info("PacketResponder " + numTargets + 
+               " for block " + block + " terminating");
     }
   }
   
