@@ -219,11 +219,12 @@ public class DataNode extends Configured
 
     try {
       // DAN: Initializing time refference
+      long test = conf.getLong("dfs.blockreport.startTimeRefference",1492012345678);
+      LOG.info("DAN: test  dfs.blockreport.startTimeRefference  = "+ test);
       long now = now();
       long secs = (now - now%1000)/1000;
-      LOG.info("DAN: secs    = "+ secs);
-      
-      startTimeRefference = ( secs - secs%3) *1000;
+
+      startTimeRefference = ( secs - secs%2) *1000;
       LOG.info("DAN: startTimeRefference    = "+ startTimeRefference);
       
       startDataNode(conf, dataDirs);

@@ -50,6 +50,14 @@
 	  <description>Delay for first block report in seconds.</description>
 	</property>
 
+	<!-- DAN: add configuration -->
+	<property>
+	  <name>dfs.blockreport.startTimeRefference</name>
+	  <value></value>
+	  <description>Determines block reporting interval in milliseconds.</description>
+	</property>
+
+
 </configuration>
 
 <!-- <configuration>
