@@ -252,9 +252,6 @@ public class MiniDFSCluster {
                 getPath()+"," + new File(base_dir, "namesecondary2").getPath());
     }
 
-    // DAN: set configuration
-    conf.setLong("dfs.blockreport.startTimeRefference", System.currentTimeMillis());
-
     int replication = conf.getInt("dfs.replication", 3);
     conf.setInt("dfs.replication", Math.min(replication, numDataNodes));
     conf.setInt("dfs.safemode.extension", 0);

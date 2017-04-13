@@ -173,6 +173,10 @@ public class NameNode implements ClientProtocol, DatanodeProtocol,
    */
   private void initialize(Configuration conf) throws IOException {
     InetSocketAddress socAddr = NameNode.getAddress(conf);
+
+    // DAN: set configuration
+    conf.setLong("dfs.blockreport.startTimeRefference", System.currentTimeMillis());
+    
     int handlerCount = conf.getInt("dfs.namenode.handler.count", 10);
     
     // set service-level authorization security policy
