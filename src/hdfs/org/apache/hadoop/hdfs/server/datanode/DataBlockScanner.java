@@ -431,8 +431,8 @@ class DataBlockScanner implements Runnable {
         
         blockSender.sendBlock(out, null, throttler);
 
-        LOG.info((second ? "Second " : "") +
-                 "Verification succeeded for " + block);
+        // LOG.info((second ? "Second " : "") +
+        //          "Verification succeeded for " + block);
         
         if ( second ) {
           totalTransientErrors++;
