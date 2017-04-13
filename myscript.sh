@@ -52,7 +52,7 @@ do
 	host=node-$counter.$projURI
 	if [ $counter -eq 0 ]
 	then
-		ssh $host 'bash -s' < masterscript.sh $maxNodes &
+		ssh $host 'bash -s' < masterscript.sh $maxNodes
 	else
 		ssh $host 'bash -s' < slavescript.sh $maxNodes &
 	fi
@@ -62,6 +62,11 @@ done
 
 wait
 echo All subshells finished
+
+host=node-0.$projURI
+
+ssh $host 'bash -s' < startNNDN.sh
+
 echo ...... Finished Starting DN and NN
 
 echo  

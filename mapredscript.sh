@@ -8,6 +8,8 @@ export HADOOP_HOME=/users/daniar/hadoop
 cd hadoop/
 # git pull ucare-github-dan master
 
+
+
 fileName=gutenberg
 destination=/$1
 echo ..... Saving $fileName files to HDFS

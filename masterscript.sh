@@ -52,12 +52,3 @@ git checkout conf/slaves
 git checkout conf/masters
 git pull ucare-github-dan master
 
-# format namenode before using it
-bin/hadoop namenode -format 
-
-# Start master node 
-# ./bin/stop-all.sh
-./bin/start-all.sh
-# ./bin/start-mapred.sh
-# bin/stop-mapred.sh
-# ./bin/stop-dfs.sh
