@@ -5,7 +5,7 @@ export HADOOP_HOME=/users/daniar/hadoop
 cd hadoop/
 
 # format namenode before using it
-bin/hadoop namenode -format 
+echo y | bin/hadoop namenode -format 
 
 # Start master node 
 ./bin/start-all.sh
