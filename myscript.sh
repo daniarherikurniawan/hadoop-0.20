@@ -28,7 +28,7 @@ git commit -m "update the latest code" -a
 git push origin master
 echo Finished updating git codes!
 
-projURI=hadoopcluster.cs331-uc.emulab.net
+projURI=hadoopcluster-dan.cs331-uc.emulab.net
 
 
 counter=0
