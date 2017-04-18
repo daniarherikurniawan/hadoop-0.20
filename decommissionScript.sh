@@ -6,7 +6,7 @@ echo ================================================
 echo               DECOMMISSION NODE
 echo ================================================
 # master node
-host=node-0.hadoopcluster-dan.cs331-uc.emulab.net
+host=node-0.hadoopcluster.cs331-uc.emulab.net
 
 echo Start from node?
 read counter
@@ -19,7 +19,7 @@ rm $file
 
 while [ $counter -le $maxNodes ]
 do
-	host=node-$counter.hadoopcluster-dan.cs331-uc.emulab.net
+	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
 	ip=$(ping -c1 -n $host | head -n1 | sed "s/.*(\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\)).*/\1/g")
 	echo $ip >> $file
 

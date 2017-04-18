@@ -3,14 +3,14 @@
 
 # Set env variables
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/
-export HADOOP_HOME=/users/riza/hadoop
+export HADOOP_HOME=/users/daniar/hadoop
 
 # Prepare temp folder
 sudo mkdir -p /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chown -R $USER:cs331-uc /tmp/hadoop-ucare /tmp/hadoop-core 
 sudo chmod -R 775 /tmp/hadoop-ucare /tmp/hadoop-core 
 
-DIR=/users/riza/hadoop
+DIR=/users/daniar/hadoop
 if [ -d "$DIR" ]; then
     printf '%s\n' "Removing Lock ($DIR)"
     rm -rf "$DIR"

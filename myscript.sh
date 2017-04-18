@@ -28,7 +28,7 @@ git commit -m "update the latest code" -a
 git push origin master
 echo Finished updating git codes!
 
-projURI=hadoopcluster-dan.cs331-uc.emulab.net
+projURI=hadoopcluster.cs331-uc.emulab.net
 
 
 counter=0
@@ -49,7 +49,7 @@ done
 counter=0
 while [ $counter -lt $maxNodes ]
 do
-	host=riza@node-$counter.$projURI
+	host=node-$counter.$projURI
 	if [ $counter -eq 0 ]
 	then
 		ssh $host 'bash -s' < masterscript.sh $maxNodes
@@ -63,7 +63,7 @@ done
 wait
 echo All subshells finished
 
-host=riza@node-0.$projURI
+host=node-0.$projURI
 
 
 ssh $host 'bash -s' < startNNDN.sh
@@ -76,7 +76,7 @@ echo ...... Starting $numThreads threads of HDFS write using copyFromLocal
 counter=0
 while [ $counter -lt $numThreads ]
 do
-	host=riza@node-$counter.$projURI
+	host=node-$counter.$projURI
 	(echo "output from $host"; ssh $host 'bash -s' < mapredscript.sh $counter$hdfsFolder $numCopy) &
 	((counter++))
 done

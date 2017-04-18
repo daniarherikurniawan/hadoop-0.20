@@ -85,10 +85,10 @@ jar -cvf WordCount.jar *.class
 just this : bin/hadoop jar build/hadoop-examples-0.20.3-SNAPSHOT.jar wordcount /gutenberg /gutenberg-output
 
 ===================== NODE ACCESS =====================
-node-0.hadoopcluster-dan.ucare.emulab.net 
-node-1.hadoopcluster-dan.ucare.emulab.net 
-node-2.hadoopcluster-dan.ucare.emulab.net 
-node-3.hadoopcluster-dan.ucare.emulab.net 
+node-0.hadoopcluster.ucare.emulab.net 
+node-1.hadoopcluster.ucare.emulab.net 
+node-2.hadoopcluster.ucare.emulab.net 
+node-3.hadoopcluster.ucare.emulab.net 
 
 
 
@@ -234,3 +234,6 @@ setenv HADOOP_HOME /users/daniar/hadoop
 bin/hadoop dfsadmin -getDatanodeInfo node-16.hadoopcluster.cs331-uc.emulab.net
 bin/hadoop fsck -racks
 
+ssh pc294.emulab.net -v
+https://www.emulab.net/gensslcert.php3?user=87860
+re generate id_rsa through the EMulab UI and extract private and pubkey from .pem
