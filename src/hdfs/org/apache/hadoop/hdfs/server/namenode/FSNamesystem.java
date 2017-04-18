@@ -2922,6 +2922,9 @@ public class FSNamesystem implements FSConstants, FSNamesystemMBean {
       addToInvalidates(b, node);
     }
     NameNode.getNameNodeMetrics().blockReport.inc((int) (now() - startTime));
+    LOG.info("DAN: current elapsed time " + (now() - startTime));
+    LOG.info("DAN: MAX TIME NameNode.getNameNodeMetrics " + NameNode.getNameNodeMetrics().blockReport.getMaxTime());
+
   }
 
   /**
