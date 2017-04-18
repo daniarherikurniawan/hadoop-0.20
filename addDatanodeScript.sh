@@ -12,7 +12,7 @@ read maxNodes
 
 while [ $counter -le $maxNodes ]
 do
-	host=node-$counter.hadoopcluster.cs331-uc.emulab.net
+	host=node-$counter.hadoopcluster-dan.cs331-uc.emulab.net
 	
 	ssh $host 'bash -s' < addDatanode.sh
 	echo ..... $host added as datanode
