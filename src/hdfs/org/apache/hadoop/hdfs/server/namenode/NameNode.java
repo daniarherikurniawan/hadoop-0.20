@@ -712,11 +712,19 @@ public class NameNode implements ClientProtocol, DatanodeProtocol,
   public DatanodeCommand blockReport(DatanodeRegistration nodeReg,
                                      long[] blocks) throws IOException {
     verifyRequest(nodeReg);
+
     BlockListAsLongs blist = new BlockListAsLongs(blocks);
     stateChangeLog.debug("*BLOCK* NameNode.blockReport: "
            +"from "+nodeReg.getName()+" "+blist.getNumberOfBlocks() +" blocks");
 
+    LOG.info("DAN: start processing ");
+
+    long start = System.currentTimeMillis();
     namesystem.processReport(nodeReg, blist);
+    long end = System.currentTimeMillis();
+
+    LOG.info("DAN: finish processing FBR on "+ (end-start) +" msecs");
+
     if (getFSImage().isUpgradeFinalized())
       return DatanodeCommand.FINALIZE;
     return null;

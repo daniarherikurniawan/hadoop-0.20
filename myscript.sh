@@ -65,6 +65,7 @@ echo All subshells finished
 
 host=node-0.$projURI
 
+
 ssh $host 'bash -s' < startNNDN.sh
 
 echo ...... Finished Starting DN and NN

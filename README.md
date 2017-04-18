@@ -35,12 +35,12 @@ by mortbay.org.
 clone : 
 
 
-branch=branch-0.23.11
+branch=ucare-HDFS-395
 rm -rf $branch
 mkdir $branch
 cd $branch
 git init
-git remote add -t $branch -f origin https://github.com/apache/hadoop.git
+git remote add -t $branch -f origin https://github.com/ucare-uchicago/hadoop.git
 git checkout $branch
 cd ..
 
@@ -161,9 +161,17 @@ PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre/bin
 export PATH
 
 bash
-host=node-0.hadoopcluster.cs331-uc.emulab.net
-ssh-keygen -R $host
-	ssh-keyscan $host >> ~/.ssh/known_hosts
+host=node-16.hadoopcluster.cs331-uc.emulab.net
+ssh-keygen -R host=node-0.hadoopcluster.cs331-uc.emulab.net
+	ssh-keyscan node-2.testspark.cs331-uc.emulab.net >> ~/.ssh/known_hosts
+
+node-1.testspark.cs331-uc.emulab.net
+node-2.testspark.cs331-uc.emulab.net
+
+
+/etc/init.d/ssh restart
+
+node-0.riza-sandbox.ucare.emulab.net
 
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub $host
 

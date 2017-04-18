@@ -1,7 +1,7 @@
 set ns [new Simulator]
 source tb_compat.tcl
 
-set maxnodes 32
+set maxnodes 33
 set lanstr ""
 
 # Create LAN including node from 1 to N
@@ -11,7 +11,7 @@ for { set i 0} { $i < $maxnodes } {incr i} {
 
     # set machine type
     if {$i <= 5} {
-      tb-set-hardware $node($i) d430
+      tb-set-hardware $node($i) pc3000
     } else {
       tb-set-hardware $node($i) pc3000
     }
