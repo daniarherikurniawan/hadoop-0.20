@@ -717,7 +717,7 @@ public class NameNode implements ClientProtocol, DatanodeProtocol,
     stateChangeLog.debug("*BLOCK* NameNode.blockReport: "
            +"from "+nodeReg.getName()+" "+blist.getNumberOfBlocks() +" blocks");
 
-    LOG.info("DAN: start processing ");
+    LOG.info("DAN: start processing FBRRR");
 
     long start = System.currentTimeMillis();
     namesystem.processReport(nodeReg, blist);
