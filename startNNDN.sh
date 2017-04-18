@@ -1,6 +1,6 @@
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/
-export HADOOP_HOME=/users/daniar/hadoop
+export HADOOP_HOME=/users/riza/hadoop
 
 cd hadoop/
 

@@ -3,7 +3,7 @@
 
 # Set env variables
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/
-export HADOOP_HOME=/users/daniar/hadoop
+export HADOOP_HOME=/users/riza/hadoop
 
 # Prepare temp folder
 sudo mkdir -p /tmp/hadoop-ucare /tmp/hadoop-core 
