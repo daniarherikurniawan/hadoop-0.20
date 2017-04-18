@@ -81,9 +81,14 @@ done
 wait
 echo All subshells finished
 
-echo open:
+host=node-0.$projURI
+
+ssh $host 'bash -s' < "eraseNNLog.sh"
+
+echo Erasing namenode logs is done
 echo 	$host:50070 
 echo 	$host:50030 
+
 echo All done
 
 exit
